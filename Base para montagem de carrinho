@@ -1,0 +1,46 @@
+// Definição dos pinos da ponte H para controle do carrinho 
+#define PinIN1 9
+#define PinIN2 6
+#define PinIN3 5
+#define PinIN4 3
+
+void setup() {
+Serial.begin(9600);
+//Definição dos pinos da ponte H como saída 
+pinMode(PinIN1, OUTPUT); // Motor Esquerdo movimento para trás
+pinMode(PinIN2, OUTPUT); // Motor Esquerdo movimento para frente
+pinMode(PinIN3, OUTPUT); // Motor Direito movimento para trás
+pinMode(PinIN4, OUTPUT); // Motor Esquerdo movimento para frente
+
+// Comando para desligar todos os motores (LOW coamando que envia o valor 0 para porta digital)
+digitalWrite(PinIN1, LOW);
+digitalWrite(PinIN2, LOW);
+digitalWrite(PinIN3, LOW);
+digitalWrite(PinIN4, LOW);
+}
+
+void loop() {
+Frente(); // Move o carrinho para frente.
+delay(2000);
+Tras();
+delay(2000); Ag
+
+}
+
+//*******************************************Estabelece as funções de movimentação do carrinho 
+
+// Move o carrinho para frente ligando os pinos IN2 e IN4 em nível lógico alto, ou seja (HIGH)
+void Frente(){
+//digitalWrite(PinIN1, HIGH);
+digitalWrite(PinIN2, HIGH);
+//digitalWrite(PinIN3, HIGH);
+digitalWrite(PinIN4, HIGH);
+}
+
+// Move o carrinho para frente ligando os pinos IN1 e IN3 em nível lógico alto, ou seja (HIGH)
+void Tras(){
+digitalWrite(PinIN1, HIGH);
+//digitalWrite(PinIN2, HIGH);
+digitalWrite(PinIN3, HIGH);
+//digitalWrite(PinIN4, HIGH);
+}
